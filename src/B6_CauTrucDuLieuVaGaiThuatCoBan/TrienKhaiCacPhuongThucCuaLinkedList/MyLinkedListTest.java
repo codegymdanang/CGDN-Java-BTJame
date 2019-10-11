@@ -7,9 +7,11 @@ public class MyLinkedListTest {
         llInteger.addFirst(11);
         llInteger.addFirst(12);
         llInteger.addFirst(13);
-
-        llInteger.add(4,14);
-        llInteger.add(4,15);
+        llInteger.addLast(14);
+        llInteger.addFirst(16);
+        llInteger.add(5,15);
+        System.out.println("remove index 5 has value "+llInteger.remove(5));
+//        llInteger.add(4,15);
         llInteger.printList();
     }
 

@@ -5,33 +5,53 @@ public class MyLinkedList<E> {
     private int numNodes;
 
     public MyLinkedList() {
-        head = new Node(0);
+        head = new Node(-1);
     }
 
     public void add(int index, E element) {
-        Node temp = head;
-        Node holder;
-
-        for(int i=0; i < index-1 && temp.next != null; i++) {
-            temp = temp.next;
+        if (index < 0 || index > numNodes) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", numNodes: " + numNodes);
         }
-        holder = temp.next;
-        temp.next = new Node(element);
-        temp.next.next = holder;
-        numNodes++;
+        if (index == numNodes) {
+            addLast(element);
+        } else {
+            addFirst(element);
+        }
+
     }
-    public void addFirst(E data) {
+    public void addFirst(E e) {
         Node temp = head;
-        head = new Node(data);
+        head = new Node(e);
         head.next = temp;
         numNodes++;
     }
-    public void addLast(E data) {
+    public void addLast(E e) {
+        Node temp = head;
+        Node holder;
 
+        for(int i=0; i < numNodes-1 && temp.next != null; i++) {
+            temp = temp.next;
+        }
+        holder = temp.next;
+        temp.next = new Node(e);
+        temp.next.next = holder;
+        numNodes++;
     }
 
     public E remove(int index) {
-        return null;
+        Node temp = head;
+        Node holder;
+        if (index < 0 || index > numNodes) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", numNodes: " + numNodes);
+        }
+        for(int i=0; i < index-1; i++) {
+            temp = temp.next;
+        }
+        holder = temp.next;
+        temp.next = null;
+        temp.next = holder.next;
+        numNodes--;
+        return (E)holder.data;
     }
 
     public boolean remove(Object object) {
@@ -74,7 +94,7 @@ public class MyLinkedList<E> {
         return null;
     }
     public void clear() {
-        
+
     }
     public void printList() {
         Node temp = head;
