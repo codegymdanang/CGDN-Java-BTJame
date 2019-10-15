@@ -1,6 +1,6 @@
 # [BOOTCAMP-JAVA] Web Back-end Development
 
-##Ngôn ngữ lập trình Java
+## Ngôn ngữ lập trình Java
 
 ## [**Bài tập] Hiển thị 20 số nguyên tố đầu tiên
 ```
