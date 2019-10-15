@@ -12,7 +12,6 @@ public class HienThi20SoNguyenToDauTien {
             input = scanner.nextInt();
             hienThiGioiHanSoNguyenTO(input);
         }
-
     }
 
     public static boolean isSoNguyenTo(int num) {
